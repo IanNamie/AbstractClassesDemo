@@ -8,7 +8,7 @@ namespace ConsoleUI
 {
     class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             /*
              * Todo follow all comments!! 
@@ -16,13 +16,7 @@ namespace ConsoleUI
 
             #region Vehicles
 
-            /*
-             * Create an abstract class called Vehicle
-             * The vehicle class shall have three string properties Year, Make, and Model
-             * Set the defaults to something generic in the Vehicle class
-             * Vehicle shall have an abstract method called DriveAbstract with no implementation
-             * Vehicle shall have a virtual method called DriveVirtual with a base implementation.
-             */
+
 
             /* 
              * Now create 2 non-abstract classes: Car and Motorcycle, that inherit from Vehicle
@@ -32,12 +26,49 @@ namespace ConsoleUI
             */
 
             // Create a list of Vehicle called vehicles
-
+            List<Vehicle> vehicles= new();
             /*
              * Create 4 instances: 1 Car, 1 Motorcycle, and then 2 instances of type Vehicle (use explicit typing) but use constuctors from derived classes
              * 
              * Set the properties with object initializer syntax
              */
+            var honda = new Car();
+            honda.Year = 2019;
+            honda.Make = "Honda";
+            honda.Model = "Civic";
+            honda.HasTrunk = true;
+
+            vehicles.Add(honda);
+
+            var harley = new Motorcycle();
+            harley.Year = 2020;
+            harley.Make = "Harley Davidson";
+            harley.Model = "sportster";
+            harley.HasSideCar = true;
+
+            vehicles.Add(harley);
+            
+            Vehicle Car1 = new Car();
+            Car1.Year = 2020;
+            Car1.Make = "Honda";
+            Car1.Model = "Accord";
+            
+            vehicles.Add(Car1);
+
+            Vehicle motorcycle1= new Motorcycle();
+            motorcycle1.Year = 2023;
+            motorcycle1.Make = "Honda";
+            motorcycle1.Model = "GoldWing";
+
+            vehicles.Add(motorcycle1);
+
+            foreach (var vehicle in vehicles) 
+            {
+                Console.WriteLine($"Make: {vehicle.Make}, Model: {vehicle.Model}, Year: {vehicle.Year}");
+                vehicle.DriveVirtual();
+                vehicle.DriveAbstract();
+                Console.WriteLine("");
+            }
 
             /*
              * Add the 4 vehicles to the list
@@ -45,6 +76,7 @@ namespace ConsoleUI
              */
 
             // Call each of the drive methods for one car and one motorcycle
+            
 
             #endregion            
             Console.ReadLine();
